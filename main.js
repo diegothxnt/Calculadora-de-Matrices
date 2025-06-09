@@ -30,6 +30,15 @@ function generateMatrices(random = false) {
     renderMatrix(matrixB, matrixBElement, 'B');
     clearResult();
 }
+function loadExample() {
+    currentSize = 3;
+    sizeSelect.value = '3';
+    matrixA = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    matrixB = [[9, 8, 7], [6, 5, 4], [3, 2, 1]];
+    renderMatrix(matrixA, matrixAElement, 'A');
+    renderMatrix(matrixB, matrixBElement, 'B');
+    clearResult();
+}
 
 function createEmptyMatrix(size) {
     return Array.from({ length: size }, () => Array(size).fill(0));
