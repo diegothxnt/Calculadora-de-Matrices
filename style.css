@@ -79,4 +79,22 @@ h1, h3 {
 .operations button:hover {
   background-color: seagreen; 
 }
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid lightgray; 
+  border-radius: 5px;
+  background: aliceblue; 
+}
+
+#result-output {
+  margin-top: 10px;
+  min-height: 50px;
+}
+
+.error {
+  color: crimson; 
+  font-weight: bold;
+  margin-top: 10px;
+}
 
