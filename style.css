@@ -58,4 +58,25 @@ h1, h3 {
   border-radius: 4px;
   text-align: center;
 }
+.operations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.operations button {
+  padding: 8px 15px;
+  background-color: mediumseagreen; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.operations button:hover {
+  background-color: seagreen; 
+}
 
