@@ -65,3 +65,22 @@ function renderMatrix(matrix, container, prefix) {
         });
     });
 }
+function updateMatrix(e) {
+    const row = parseInt(e.target.dataset.row);
+    const col = parseInt(e.target.dataset.col);
+    const value = parseFloat(e.target.value) || 0;
+    const matrix = e.target.dataset.matrix === 'A' ? matrixA : matrixB;
+    matrix[row][col] = value;
+}
+
+function getMatrixFromInputs(prefix) {
+    const size = currentSize;
+    const matrix = createEmptyMatrix(size);
+    const inputs = document.querySelectorAll(`#matrix${prefix} .matrix-cell`);
+    inputs.forEach(input => {
+        const row = parseInt(input.dataset.row);
+        const col = parseInt(input.dataset.col);
+        matrix[row][col] = parseFloat(input.value) || 0;
+    });
+    return matrix;
+}
