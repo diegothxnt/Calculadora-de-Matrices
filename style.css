@@ -19,4 +19,43 @@ h1, h3 {
   color: darkslategray; 
   text-align: center;
 }
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#matrices {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.matrix {
+  flex: 1;
+  min-width: 300px;
+  border: 1px solid lightgray; 
+  padding: 15px;
+  border-radius: 5px;
+  background: whitesmoke; 
+}
+
+.matrix-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.matrix-cell {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid lightgray; 
+  border-radius: 4px;
+  text-align: center;
+}
 
