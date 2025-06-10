@@ -35,3 +35,23 @@ Aplicación web que permite realizar operaciones matemáticas con matrices cuadr
 5. Revisa el resultado en la sección inferior.
 
 
+ ## 🧩 Tecnologías Utilizadas
+
+- HTML5, CSS y JavaScript 
+
+
+## 📁 Estructura del Proyecto
+
+```
+index.html      --> Interfaz y estructura
+style.css       --> Estilos y diseño visual
+main.js         --> Lógica de operaciones y eventos
+README.md       --> Documentación
+```
+
+## 👤 Autor
+
+**Diego Rojas**  
+Proyecto para Lenguaje de clientes web.
+2025
+
