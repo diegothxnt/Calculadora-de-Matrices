@@ -138,6 +138,57 @@ function clearResult() {
 function showError(message) {
     resultOutput.innerHTML = `<p class="error">${message}</p>`;
 }
+function performOperation(operation) {
+    matrixA = getMatrixFromInputs('A');
+    matrixB = getMatrixFromInputs('B');
+    try {
+        let result;
+        switch (operation) {
+            case 'sumar':
+                result = addMatrices(matrixA, matrixB);
+                displayResult(result);
+                break;
+            case 'restar':
+                result = subtractMatrices(matrixA, matrixB);
+                displayResult(result);
+                break;
+            case 'restarInversa':
+                result = subtractMatrices(matrixB, matrixA);
+                displayResult(result);
+                break;
+            case 'multiplicar':
+                result = multiplyMatrices(matrixA, matrixB);
+                displayResult(result);
+                break;
+            case 'escalar':
+                showScalarInput();
+                break;
+            case 'transpuesta':
+                const original = matrixA;
+                const transpuesta = transposeMatrix(matrixA);
+                displayMultipleMatrices([original, transpuesta], ['A', 'Aᵗ']);
+                break;
+            case 'determinante':
+                const det = calculateDeterminant(matrixA);
+                displayResult(det);
+                break;
+            case 'inversa':
+                const inv = calculateInverse(matrixA);
+                const identity = multiplyMatrices(matrixA, inv);
+                displayMultipleMatrices([inv, identity], ['A⁻¹', 'A × A⁻¹']);
+                break;
+            case 'identidad':
+                result = createIdentityMatrix(currentSize);
+                displayResult(result);
+                break;
+            default:
+                showError('Operación no reconocida');
+        }
+    } catch (error) {
+        showError(error.message);
+    }
+}
+
 function addMatrices(a, b) {
     if (a.length !== b.length || a[0].length !== b[0].length) {
         throw new Error('Las matrices deben tener las mismas dimensiones');
