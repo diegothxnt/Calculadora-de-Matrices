@@ -163,6 +163,10 @@ function multiplyMatrices(a, b) {
     }
     return result;
 }
+function scalarMultiply(matrix, scalar) {
+    return matrix.map(row => row.map(val => val * scalar));
+}
+
 function transposeMatrix(matrix) {
     return matrix[0].map((_, i) => matrix.map(row => row[i]));
 }
@@ -191,5 +195,32 @@ function calculateInverse(matrix) {
         }
     }
     return scalarMultiply(adjugate, 1 / det);
+}
+function createIdentityMatrix(size) {
+    return Array.from({ length: size }, (_, i) => Array.from({ length: size }, (_, j) => i === j ? 1 : 0));
+}
+
+function showScalarInput() {
+    resultOutput.innerHTML = `
+        <div class="scalar-input">
+            <input type="number" id="scalar-value" placeholder="Ingrese el escalar">
+            <button onclick="applyScalar()">Aplicar</button>
+            <button onclick="clearResult()">Cancelar</button>
+        </div>
+    `;
+}
+
+function applyScalar() {
+    const scalar = parseFloat(document.getElementById('scalar-value').value);
+    if (isNaN(scalar)) {
+        showError('Por favor ingrese un valor numérico válido');
+        return;
+    }
+    try {
+        const result = scalarMultiply(matrixA, scalar);
+        displayResult(result);
+    } catch (error) {
+        showError(error.message);
+    }
 }
 
