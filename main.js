@@ -135,6 +135,9 @@ function displayMultipleMatrices(matrices, labels) {
 function clearResult() {
     resultOutput.innerHTML = '';
 }
+function showError(message) {
+    resultOutput.innerHTML = `<p class="error">${message}</p>`;
+}
 function addMatrices(a, b) {
     if (a.length !== b.length || a[0].length !== b[0].length) {
         throw new Error('Las matrices deben tener las mismas dimensiones');
