@@ -84,3 +84,33 @@ function getMatrixFromInputs(prefix) {
     });
     return matrix;
 }
+function addMatrices(a, b) {
+    if (a.length !== b.length || a[0].length !== b[0].length) {
+        throw new Error('Las matrices deben tener las mismas dimensiones');
+    }
+    return a.map((row, i) => row.map((val, j) => val + b[i][j]));
+}
+
+function subtractMatrices(a, b) {
+    if (a.length !== b.length || a[0].length !== b[0].length) {
+        throw new Error('Las matrices deben tener las mismas dimensiones');
+    }
+    return a.map((row, i) => row.map((val, j) => val - b[i][j]));
+}
+
+function multiplyMatrices(a, b) {
+    if (a[0].length !== b.length) {
+        throw new Error('El número de columnas de A debe coincidir con filas de B');
+    }
+    const result = createEmptyMatrix(a.length);
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b[0].length; j++) {
+            for (let k = 0; k < a[0].length; k++) {
+                result[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return result;
+}
+
+
