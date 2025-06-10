@@ -163,5 +163,19 @@ function multiplyMatrices(a, b) {
     }
     return result;
 }
+function transposeMatrix(matrix) {
+    return matrix[0].map((_, i) => matrix.map(row => row[i]));
+}
 
+function calculateDeterminant(matrix) {
+    if (matrix.length === 2) {
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+    }
+    let det = 0;
+    for (let i = 0; i < matrix.length; i++) {
+        const minor = matrix.slice(1).map(row => row.filter((_, j) => j !== i));
+        det += matrix[0][i] * (i % 2 === 0 ? 1 : -1) * calculateDeterminant(minor);
+    }
+    return det;
+}
 
