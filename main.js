@@ -84,6 +84,57 @@ function getMatrixFromInputs(prefix) {
     });
     return matrix;
 }
+function displayResult(result) {
+    if (typeof result === 'number') {
+        resultOutput.innerHTML = `<p>Resultado: <strong>${result.toFixed(4)}</strong></p>`;
+        return;
+    }
+    const matrixDiv = document.createElement('div');
+    matrixDiv.className = 'matrix-grid';
+    matrixDiv.style.gridTemplateColumns = `repeat(${result.length}, 1fr)`;
+    result.forEach(row => {
+        row.forEach(val => {
+            const cell = document.createElement('div');
+            cell.className = 'matrix-cell';
+            cell.textContent = val.toFixed(4);
+            matrixDiv.appendChild(cell);
+        });
+    });
+    resultOutput.innerHTML = '';
+    resultOutput.appendChild(matrixDiv);
+}
+
+function displayMultipleMatrices(matrices, labels) {
+    resultOutput.innerHTML = '';
+    const container = document.createElement('div');
+    container.style.display = 'flex';
+    container.style.gap = '30px';
+    container.style.flexWrap = 'wrap';
+    matrices.forEach((matrix, index) => {
+        const matrixWrapper = document.createElement('div');
+        const label = document.createElement('h4');
+        label.textContent = labels[index];
+        const grid = document.createElement('div');
+        grid.className = 'matrix-grid';
+        grid.style.gridTemplateColumns = `repeat(${matrix.length}, 1fr)`;
+        matrix.forEach(row => {
+            row.forEach(val => {
+                const cell = document.createElement('div');
+                cell.className = 'matrix-cell';
+                cell.textContent = val.toFixed(4);
+                grid.appendChild(cell);
+            });
+        });
+        matrixWrapper.appendChild(label);
+        matrixWrapper.appendChild(grid);
+        container.appendChild(matrixWrapper);
+    });
+    resultOutput.appendChild(container);
+}
+
+function clearResult() {
+    resultOutput.innerHTML = '';
+}
 function addMatrices(a, b) {
     if (a.length !== b.length || a[0].length !== b[0].length) {
         throw new Error('Las matrices deben tener las mismas dimensiones');
