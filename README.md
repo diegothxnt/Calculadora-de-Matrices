@@ -12,10 +12,26 @@ Aplicación web que permite realizar operaciones matemáticas con matrices cuadr
 - **Operaciones matemáticas**:
   - Suma (A + B)
   - Resta (A - B y B - A)
-  - Multiplicación de matrices (A × B)
-  - Multiplicación por escalar (k × A)
-  - Transposición (Aᵗ) con visualización de matriz original y transpuesta
-  - Determinante (det(A)) hasta 10x10
-  - Inversa (A⁻¹) mediante método de Gauss-Jordan y validación con A × A⁻¹ = I
-  - Generación de matriz identidad (Iₙ)
+  - Multiplicación de matrices (A × B).
+  - Multiplicación por escalar (k × A).
+  - Transposición (Aᵗ) con visualización de matriz original y transpuesta.
+  - Determinante (det(A)) hasta 10x10.
+  - Inversa (A⁻¹) mediante método de Gauss-Jordan y validación con A × A⁻¹ = I.
+  - Generación de matriz identidad (Iₙ).
+ 
+
+  ## 🧪 Validaciones
+
+- Validación de entradas numéricas (enteros y decimales).
+- Verificación de dimensiones para operaciones.
+- Manejo de errores con mensajes claros.
+
+## 🚀 Uso
+
+1. Abre el archivo `index.html` en tu navegador.
+2. Selecciona el tamaño de las matrices.
+3. Ingresa valores manualmente o genera aleatorios.
+4. Haz clic en la operación deseada.
+5. Revisa el resultado en la sección inferior.
+
 
