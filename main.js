@@ -178,4 +178,18 @@ function calculateDeterminant(matrix) {
     }
     return det;
 }
+function calculateInverse(matrix) {
+    const det = calculateDeterminant(matrix);
+    if (det === 0) throw new Error('La matriz no tiene inversa (determinante = 0)');
+    const size = matrix.length;
+    const adjugate = createEmptyMatrix(size);
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+            const minor = matrix.filter((_, k) => k !== i).map(row => row.filter((_, k) => k !== j));
+            const cofactor = ((i + j) % 2 === 0 ? 1 : -1) * calculateDeterminant(minor);
+            adjugate[j][i] = cofactor;
+        }
+    }
+    return scalarMultiply(adjugate, 1 / det);
+}
 
